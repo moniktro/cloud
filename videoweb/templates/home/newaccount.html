@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %} Create New Account
+<script src="http://api.html5media.info/1.1.5/html5media.min.js"></script>
+{% endblock %}
+{% block content %} 
+<form action='.' method='POST' enctype="multipart/form-data">
+	{% csrf_token %}
+	{{ form.as_p}}
+	<input type= "submit" value="Save">
+	<input type= "reset" value="Reset">
+	<br>
+	{{ info }}
+</form> 
+{% endblock %}

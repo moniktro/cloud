@@ -1,0 +1,26 @@
+	{% extends 'base.html' %}
+	{% block title %} My Videos {{ user.username}}
+	<script src="http://api.html5media.info/1.1.5/html5media.min.js"></script>
+	{% endblock %}
+	{% block content %} 
+		{% if uploadvideo %}
+		<TABLE WIDTH=1000 CELLPADDING=3 CELLSPACING=1> 
+			{% for u in uploadvideo %}
+				<TR>
+					<TD WIDTH=300>
+						<video src={{u.video}} width=400 height=200 controls> </video>
+					</TD>
+					<TD WIDTH=700>
+						<h2>{{u.name}}</h2>
+						<h3>{{u.message}}</h3>
+						<h5>Active: {{u.status}}</h5>	
+						<h5>{{u.datepublish}}</h5>	
+					</TD>
+				</TR>
+			{% endfor %}
+		</TABLE>
+		{% else %}
+			<h2>No video assets</h2>
+		{% endif %}
+	{% endblock %}
+
